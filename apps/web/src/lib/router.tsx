@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import PublicOnlyRoute from '@/components/PublicOnlyRoute';
 import Root from '@/routes/Root';
 import Login from '@/routes/Login';
 
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login />,
+    element: (
+      <PublicOnlyRoute>
+        <Login />
+      </PublicOnlyRoute>
+    ),
   },
 ]);
 
