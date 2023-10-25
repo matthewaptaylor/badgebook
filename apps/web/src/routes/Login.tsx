@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import HeroBackground from '@/components/HeroBackground';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,34 +11,38 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const Login: React.FC = () => (
-  <HeroBackground className="p-6 flex flex-col justify-center items-center">
-    <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Log in</CardTitle>
-      </CardHeader>
+const Login: React.FC = () => {
+  const { t } = useTranslation();
 
-      <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" placeholder="john@example.com" />
+  return (
+    <HeroBackground className="p-6 flex flex-col justify-center items-center">
+      <Card className="w-[350px]">
+        <CardHeader>
+          <CardTitle>{t('log_in_title')}</CardTitle>
+        </CardHeader>
+
+        <CardContent>
+          <form>
+            <div className="grid w-full items-center gap-4">
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="email">{t('email_label')}</Label>
+                <Input id="email" placeholder={t('email_placeholder')} />
+              </div>
+
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="password">{t('password_label')}</Label>
+                <Input id="password" placeholder={t('password_placeholder')} />
+              </div>
             </div>
+          </form>
+        </CardContent>
 
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="email">Password</Label>
-              <Input id="email" placeholder="Not 'password123'" />
-            </div>
-          </div>
-        </form>
-      </CardContent>
-
-      <CardFooter className="flex justify-end">
-        <Button>Log in</Button>
-      </CardFooter>
-    </Card>
-  </HeroBackground>
-);
+        <CardFooter className="flex justify-end">
+          <Button>{t('log_in_title')}</Button>
+        </CardFooter>
+      </Card>
+    </HeroBackground>
+  );
+};
 
 export default Login;

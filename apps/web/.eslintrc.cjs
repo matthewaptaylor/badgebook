@@ -6,6 +6,11 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   plugins: ['react-refresh'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: {
@@ -18,6 +23,13 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
+    ],
+    'react/jsx-no-literals': [
+      1,
+      {
+        noStrings: true,
+        ignoreProps: true,
+      },
     ],
   },
 };
