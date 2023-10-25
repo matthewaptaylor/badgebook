@@ -31,5 +31,6 @@ module.exports = {
         ignoreProps: true,
       },
     ],
+    'react/prop-types': 0,
   },
 };

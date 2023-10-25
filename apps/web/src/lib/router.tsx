@@ -1,11 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import Root from '@/routes/Root';
 import Login from '@/routes/Login';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
+    element: (
+      <ProtectedRoute>
+        <Root />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/login',
